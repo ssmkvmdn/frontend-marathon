@@ -17,7 +17,7 @@ function Calc(operation, num1, num2) {
         case 'pow':
             return num1 ** num2;
         case 'mod':
-            return num1 % num2;
+            return (num2 === 0) ? "incorrect. mod by zero" : num1 % num2;
         default:
             return "unknown operation";
     }
