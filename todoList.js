@@ -1,7 +1,7 @@
 const list = {
-    "create a task": "In Progress",
-    "make a bed": "Done",
-    "write a post": "To Do",
+    'create a task': 'In Progress',
+    'make a bed': 'Done',
+    'write a post': 'To Do',
 }
 
 function changeStatus(task, status) {
@@ -22,11 +22,11 @@ function showList(todoList) {
     let statusDone = '';
 
     for (let task in todoList) {
-        if (todoList[task] === "To Do") {
+        if (todoList[task] === 'To Do') {
             statusToDo += ` ${task}\n`;
-        } else if (todoList[task] === "In Progress") {
+        } else if (todoList[task] === 'In Progress') {
             statusInProgress += ` ${task}\n`;
-        } else if (todoList[task] === "Done") {
+        } else if (todoList[task] === 'Done') {
             statusDone += ` ${task}\n`;
         }
     }
