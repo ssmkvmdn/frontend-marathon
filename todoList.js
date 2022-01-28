@@ -23,15 +23,15 @@ function showList(todoList) {
 
     for (let task in todoList) {
         if (todoList[task] === "To Do") {
-            statusToDo += `"${task}"\n`;
+            statusToDo += ` ${task}\n`;
         } else if (todoList[task] === "In Progress") {
-            statusInProgress += `"${task}"\n`;
+            statusInProgress += ` ${task}\n`;
         } else if (todoList[task] === "Done") {
-            statusDone += `"${task}"\n`;
+            statusDone += ` ${task}\n`;
         }
     }
 
-    return `Todo:\n${statusToDo || '-'} \nIn Progress :\n${statusInProgress || '-'} \nDone:\n${statusDone || '-'} `;
+    return `Todo:\n${statusToDo || '-'}In Progress :\n${statusInProgress || '-'}Done:\n${statusDone || '-'}`;
 }
 
 addTask('покрасить забор');
