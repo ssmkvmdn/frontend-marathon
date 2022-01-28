@@ -30,11 +30,8 @@ function showList(todoList) {
             statusDone += `"${task}"\n`;
         }
     }
-    statusToDo = statusToDo ? statusToDo : '-';
-    statusInProgress = statusInProgress ? statusInProgress : '-';
-    statusDone = statusDone ? statusDone : '-';
 
-    return `Todo:\n${statusToDo} \n In Progress :\n${statusInProgress} \n Done:\n${statusDone} `;
+    return `Todo:\n${statusToDo || '-'} \nIn Progress :\n${statusInProgress || '-'} \nDone:\n${statusDone || '-'} `;
 }
 
 addTask('покрасить забор');
