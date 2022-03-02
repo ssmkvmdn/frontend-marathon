@@ -1,15 +1,23 @@
-const list = {
-    'create a task': 'In Progress',
-    'make a bed': 'Done',
-    'write a post': 'To Do',
+const STATUS = {
+    TO_DO: 'To Do',
+    IN_PROGRESS: 'In Progress',
+    DONE: 'Done',
 }
+
+const list = {
+    'create a task': STATUS.IN_PROGRESS,
+    'make a bed': STATUS.DONE,
+    'write a post': STATUS.TO_DO,
+}
+
+const DEFAULT_STATUS = STATUS.TO_DO;
 
 function changeStatus(task, status) {
     list[task] = status;
 }
 
 function addTask(task) {
-    list[task] = 'To Do';
+    list[task] = DEFAULT_STATUS;
 }
 
 function deleteTask(task) {
@@ -17,21 +25,19 @@ function deleteTask(task) {
 }
 
 function showList(todoList) {
-    let statusToDo = '';
-    let statusInProgress = '';
-    let statusDone = '';
-
-    for (let task in todoList) {
-        if (todoList[task] === 'To Do') {
-            statusToDo += ` ${task},\n`;
-        } else if (todoList[task] === 'In Progress') {
-            statusInProgress += ` ${task},\n`;
-        } else if (todoList[task] === 'Done') {
-            statusDone += ` ${task},\n`;
-        }
+    const tasks = {
+        [STATUS.TO_DO]: '',
+        [STATUS.IN_PROGRESS]: '',
+        [STATUS.DONE]: '',
     }
 
-    return `Todo:\n${statusToDo || '-'}In Progress :\n${statusInProgress || '-'}Done:\n${statusDone || '-'}`;
+    const noTasks = '-';
+
+    for (let task in todoList) {
+        tasks[todoList[task]] += ` ${task},\n`;
+    }
+
+    return `To do:\n${tasks[STATUS.TO_DO] || noTasks}In Progress :\n${tasks[STATUS.IN_PROGRESS] || noTasks}Done:\n${tasks[STATUS.DONE] || noTasks}`;
 }
 
 addTask('покрасить забор');
